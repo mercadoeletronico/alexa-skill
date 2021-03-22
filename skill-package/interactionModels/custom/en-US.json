@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "change me",
+      "invocationName": "mercado eletronico",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -14,6 +14,12 @@
         {
           "name": "AMAZON.StopIntent",
           "samples": []
+        },
+        {
+          "name": "IsRequests",
+          "samples":[
+            "Tem requisições em aberto"
+          ]
         },
         {
           "name": "HelloWorldIntent",

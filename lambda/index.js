@@ -3,6 +3,23 @@
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
 
+const IsRequestsHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'IsRequests';
+    }, 
+    handle(handlerInput) {
+        const input = 'SemApi'
+       /*/ httpGet((theResult) => {
+             input = theResult;
+        }); /*/
+        return handlerInput.responseBuilder
+            .speak(input)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -112,6 +129,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
+        IsRequestsHandler,
         IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
