@@ -15,7 +15,7 @@ const IsRequestsHandler = {
         const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
 
         return handlerInput.responseBuilder
-            .speak("1")
+            .speak(JSON.stringify(data))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
