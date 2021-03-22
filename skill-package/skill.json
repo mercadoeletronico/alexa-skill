@@ -1,0 +1,35 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:451901498248:function:d2ea11f9-fcee-4063-b8d6-c7f528d73433:Release_0"
+        },
+        "regions": {
+          "EU": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-west-1:451901498248:function:d2ea11f9-fcee-4063-b8d6-c7f528d73433:Release_0"
+            }
+          },
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-east-1:451901498248:function:d2ea11f9-fcee-4063-b8d6-c7f528d73433:Release_0"
+            }
+          },
+          "FE": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-west-2:451901498248:function:d2ea11f9-fcee-4063-b8d6-c7f528d73433:Release_0"
+            }
+          }
+        }
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "MEAlexa"
+        }
+      }
+    }
+  }
+}
