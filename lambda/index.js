@@ -2,19 +2,20 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
+const axios = require('axios');
 
 const IsRequestsHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'IsRequests';
     }, 
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const input = 'SemApi'
-       /*/ httpGet((theResult) => {
-             input = theResult;
-        }); /*/
+
+        const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
+
         return handlerInput.responseBuilder
-            .speak(input)
+            .speak(data.lenght)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
