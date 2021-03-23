@@ -22,6 +22,12 @@
           ]
         },
         {
+          "name": "WhatRequests",
+          "samples":[
+            "Quais requisições estão em aberto"
+          ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [
