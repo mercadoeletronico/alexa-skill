@@ -23,7 +23,7 @@ const IsRequestsHandler = {
 const WhatRequestsHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'WhatRequest';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'WhatRequests';
     }, 
     async handle(handlerInput) {
 
