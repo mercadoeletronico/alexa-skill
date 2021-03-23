@@ -18,7 +18,10 @@
         {
           "name": "IsRequests",
           "samples":[
-            "Tem requisições em aberto"
+            "Tem requisições em aberto",
+            "Quantas requisições em aberto",
+            "Alguma requisição em aberto",
+            "Há requisições em aberto"
           ]
         },
         {
