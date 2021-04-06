@@ -16,7 +16,6 @@ const TEM_PENDENCIAHandler ={ // Consultar pendencia dar return do numero de pen
         return handlerInput.responseBuilder
             //.speak(JSON.stringify(data))
             .speak("Tem Pendencia teste")
-            console.log(data)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
