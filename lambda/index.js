@@ -27,7 +27,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
     },
     async handle(handlerInput) {
 
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/orders")
         const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
