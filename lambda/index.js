@@ -67,44 +67,12 @@ const SAVINGHandler ={//Consultar o saving dar return do saving atual para o esp
 
 };
 
-const IsRequestsHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'IsRequests';
-    }, 
-    async handle(handlerInput) {
-
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
-
-        return handlerInput.responseBuilder
-            .speak("Tem " + data.length + " requisições abertas")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-    }
-};
-
-const WhatRequestsHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'WhatRequests';
-    }, 
-    async handle(handlerInput) {
-
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
-
-        return handlerInput.responseBuilder
-            .speak("Tem as requisições "+JSON.stringify(data)+ " em aberto")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-    }
-};
-
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Olá, Bem vindo ao assistente do Mercado Eletrónico';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
