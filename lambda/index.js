@@ -14,7 +14,7 @@ const TEM_PENDENCIAHandler ={ // Consultar pendencia dar return do numero de pen
         const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
 
         return handlerInput.responseBuilder
-            .speak(stringify(data))
+            .speak(JSON.stringify(data))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
@@ -29,7 +29,7 @@ const DESCRIBE_PENDENCIAHandler ={// Consultar as pendencias dar return da descr
         const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
 
         return handlerInput.responseBuilder
-            .speak(stringify(data))
+            .speak(JSON.stringify(data))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
@@ -44,7 +44,7 @@ const LEADTIME_ATUALHandler ={//Consultar o leadtime dar return do leadtime
         const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
 
         return handlerInput.responseBuilder
-            .speak(stringify(data))
+            .speak(JSON.stringify(data))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
@@ -60,7 +60,7 @@ const SAVINGHandler ={//Consultar o saving dar return do saving atual para o esp
         const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
 
         return handlerInput.responseBuilder
-            .speak(stringify(data))
+            .speak(JSON.stringify(data))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
