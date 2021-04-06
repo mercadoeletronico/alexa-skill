@@ -4,30 +4,31 @@
 const Alexa = require('ask-sdk-core');
 const axios = require('axios');
 
-const TEM_PENDENCIAHandler ={ // Consultar pendencia dar return do numero de pendencias
+const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pendencias
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'TEM_PENDENCIA';
-    }, 
+    },
     async handle(handlerInput) {
 
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com") 
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
+        const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
-            .speak(JSON.stringify(data))
+            .speak(speakOutput)
             //.speak("Tem Pendencia teste")
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
-const DESCRIBE_PENDENCIAHandler ={// Consultar as pendencias dar return da descrição das pendencias numero comprador etc
+const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da descrição das pendencias numero comprador etc
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'DESCRIBE_PENDENCIA';
-    }, 
+    },
     async handle(handlerInput) {
 
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com/orders") 
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/orders")
 
         return handlerInput.responseBuilder
             .speak(JSON.stringify(data))
@@ -35,14 +36,14 @@ const DESCRIBE_PENDENCIAHandler ={// Consultar as pendencias dar return da descr
             .getResponse();
     }
 };
-const LEADTIME_ATUALHandler ={//Consultar o leadtime dar return do leadtime
+const LEADTIME_ATUALHandler = {//Consultar o leadtime dar return do leadtime
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LEADTIME_ATUAL';
-    }, 
+    },
     async handle(handlerInput) {
 
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com") 
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
 
         return handlerInput.responseBuilder
             .speak(JSON.stringify(data))
@@ -51,14 +52,14 @@ const LEADTIME_ATUALHandler ={//Consultar o leadtime dar return do leadtime
     }
 
 };
-const SAVINGHandler ={//Consultar o saving dar return do saving atual para o espaço de tempo
+const SAVINGHandler = {//Consultar o saving dar return do saving atual para o espaço de tempo
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SAVING';
-    }, 
+    },
     async handle(handlerInput) {
 
-        const {data} = await axios.get("https://me-alexa-api.herokuapp.com") 
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
 
         return handlerInput.responseBuilder
             .speak(JSON.stringify(data))
@@ -181,7 +182,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         DESCRIBE_PENDENCIAHandler,
         LEADTIME_ATUALHandler,
         SAVINGHandler,
-        IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+        IntentReflectorHandler // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
         ErrorHandler,
