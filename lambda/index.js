@@ -16,8 +16,7 @@ const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pe
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.speak("Tem Pendencia teste")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(speakOutput)
             .getResponse();
     }
 };
@@ -33,8 +32,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.speak("Tem Pendencia teste")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(speakOutput)
             .getResponse();
     }
 };
@@ -50,8 +48,7 @@ const LEADTIME_ATUALHandler = {//Consultar o leadtime dar return do leadtime
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.speak("Tem Pendencia teste")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(speakOutput)
             .getResponse();
     }
 
@@ -68,8 +65,7 @@ const SAVINGHandler = {//Consultar o saving dar return do saving atual para o es
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.speak("Tem Pendencia teste")
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(speakOutput)
             .getResponse();
     }
 
