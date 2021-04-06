@@ -43,7 +43,7 @@ const LEADTIME_ATUALHandler = {//Consultar o leadtime dar return do leadtime
     },
     async handle(handlerInput) {
 
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")// .com/leadtime
         const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
@@ -60,7 +60,7 @@ const SAVINGHandler = {//Consultar o saving dar return do saving atual para o es
     },
     async handle(handlerInput) {
 
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")// .com/saving
         const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
