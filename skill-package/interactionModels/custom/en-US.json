@@ -16,18 +16,33 @@
           "samples": []
         },
         {
-          "name": "IsRequests",
-          "samples":[
-            "Tem requisições em aberto",
-            "Quantas requisições em aberto",
-            "Alguma requisição em aberto",
-            "Há requisições em aberto"
+          "name": "TEM_PENDENCIA",
+          "samples": [
+            "Tenho alguma pendencia"
           ]
         },
         {
-          "name": "WhatRequests",
-          "samples":[
-            "Quais requisições estão em aberto"
+          "name": "DESCRIBE_PENDENCIA",
+          "samples": [
+            "Descreva minhas pendencias"
+          ]
+        },
+        {
+          "name": "LEADTIME_ATUAL",
+          "samples": [
+            "Qual o leadtime atual"
+          ]
+        },
+        {
+          "name": "SAVING",
+          "slots": [
+            {
+              "name": "PeriodoTempo",
+              "type": "PERIODO"
+            }
+          ],
+          "samples": [
+            "qual o meu saving na "
           ]
         },
         {
@@ -48,7 +63,33 @@
           "samples": []
         }
       ],
-      "types": []
+      "types": [
+        {
+          "name": "PERIODO",
+          "values": [
+            {
+              "name": {
+                "value": "dia"
+              }
+            },
+            {
+              "name": {
+                "value": "semana"
+              }
+            },
+            {
+              "name": {
+                "value": "mes"
+              }
+            },
+            {
+              "name": {
+                "value": "ano"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "version": "1"
