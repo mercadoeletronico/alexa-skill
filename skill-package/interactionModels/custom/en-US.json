@@ -26,69 +26,10 @@
           "samples": [
             "Descreva minhas pendencias"
           ]
-        },
-        {
-          "name": "LEADTIME_ATUAL",
-          "samples": [
-            "Qual o leadtime atual"
-          ]
-        },
-        {
-          "name": "SAVING",
-          "slots": [
-            {
-              "name": "PeriodoTempo",
-              "type": "PERIODO"
-            }
-          ],
-          "samples": [
-            "qual o meu saving na "
-          ]
-        },
-        {
-          "name": "HelloWorldIntent",
-          "slots": [],
-          "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
-          ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
         }
       ],
       "types": [
-        {
-          "name": "PERIODO",
-          "values": [
-            {
-              "name": {
-                "value": "dia"
-              }
-            },
-            {
-              "name": {
-                "value": "semana"
-              }
-            },
-            {
-              "name": {
-                "value": "mes"
-              }
-            },
-            {
-              "name": {
-                "value": "ano"
-              }
-            }
-          ]
-        }
+
       ]
     }
   },
