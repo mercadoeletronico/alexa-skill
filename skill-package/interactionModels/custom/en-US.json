@@ -26,6 +26,18 @@
           "samples": [
             "Descreva minhas pendencias"
           ]
+        },
+        {
+          "name": "APROVAR_PENDENCIA",
+          "samples": [
+            "aprovar"
+          ]
+        },
+        {
+          "name": "RECUSAR_PENDENCIA",
+          "samples": [
+            "recusar"
+          ]
         }
       ],
       "types": [

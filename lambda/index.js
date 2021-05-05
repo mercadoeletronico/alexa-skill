@@ -26,9 +26,10 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'DESCRIBE_PENDENCIA';
     },
     async handle(handlerInput) {
-
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/orders")
-        const speakOutput = JSON.stringify(data);
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/orders")//receber frase [0] e numero pendencia [1]
+        //const speakOutput = JSON.stringify(data);
+        this.$session.$data.pendencia = data[1];
+        const speakOutput = data[0];
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -36,39 +37,25 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
             .getResponse();
     }
 };
-const LEADTIME_ATUALHandler = {//Consultar o leadtime dar return do leadtime
+
+const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LEADTIME_ATUAL';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'APROVAR_PENDENCIA';
     },
     async handle(handlerInput) {
-
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")// .com/leadtime
-        const speakOutput = JSON.stringify(data);
-
+        //const { data } = await axios.post("")//Link aprovar
+       // {
+        //    pend = this.$session.$data.pendencia
+     //   }
+     const speakOutput = this.$session.$data.pendencia
+        this.$session.$data.pendencia = "";
+      //  const speakOutput = data
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
             .getResponse();
     }
-
-};
-const SAVINGHandler = {//Consultar o saving dar return do saving atual para o espaço de tempo
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SAVING';
-    },
-    async handle(handlerInput) {
-
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")// .com/saving
-        const speakOutput = JSON.stringify(data);
-
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    }
-
 };
 
 const LaunchRequestHandler = {
@@ -152,7 +139,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
         TEM_PENDENCIAHandler,
-        DESCRIBE_PENDENCIAHandler,
+        APROVAR_PENDENCIAHandler,
         IntentReflectorHandler // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
