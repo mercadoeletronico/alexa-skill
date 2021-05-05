@@ -140,6 +140,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         SessionEndedRequestHandler,
         TEM_PENDENCIAHandler,
         APROVAR_PENDENCIAHandler,
+        DESCRIBE_PENDENCIAHandler,
         IntentReflectorHandler // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
