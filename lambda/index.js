@@ -36,8 +36,8 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
         return handlerInput.responseBuilder
           //  .speak(data.speak)
           //  .reprompt(data.speak)
-            .speak(attributes)
-            .reprompt(attributes)
+            .speak(attributes-pendencia)
+            .reprompt(attributes.pendencia)
             .getResponse();
     }
 };
@@ -51,7 +51,7 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", { pend:attributes})//Link aprovar
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", { pend:attributes.pendencia})//Link aprovar
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data
