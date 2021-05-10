@@ -11,7 +11,7 @@ const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pe
     },
     async handle(handlerInput) {
 
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com")
+        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/tem_pendencia")
         const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
@@ -44,9 +44,9 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
     async handle(handlerInput) {
         const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", { pend:this.$session.$data.pendencia})//Link aprovar
 
-     //const speakOutput = this.$session.$data.pendencia
+
         this.$session.$data.pendencia = "";
-      //  const speakOutput = data
+        const speakOutput = data
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
