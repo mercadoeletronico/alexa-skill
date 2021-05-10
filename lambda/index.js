@@ -28,6 +28,10 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
     async handle(handlerInput) {
         const { data } = await axios.get("https://me-alexa-api.herokuapp.com/describe_pendencia")//receber frase [0] e numero pendencia [1]
 
+        const attributes = handlerInput.attributesManager.getSessionAttributes();
+        attributes.pendencia = data.id
+        handlerInput.attributesManager.setSessionAttributes(pendencia)
+
         //this.$session.$data.pendencia = data.id;
         return handlerInput.responseBuilder
             .speak(data.speak)
@@ -42,10 +46,12 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'APROVAR_PENDENCIA';
     },
     async handle(handlerInput) {
-        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", { pend:this.$session.$data.pendencia})//Link aprovar
 
+        const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        this.$session.$data.pendencia = "";
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", { pend:attributes})//Link aprovar
+
+        //this.$session.$data.pendencia = "";
         const speakOutput = data
         return handlerInput.responseBuilder
             .speak(speakOutput)
