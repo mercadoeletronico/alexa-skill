@@ -36,7 +36,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
         return handlerInput.responseBuilder
           //  .speak(data.speak)
           //  .reprompt(data.speak)
-            .speak(attributes-pendencia)
+            .speak(attributes.pendencia)
             .reprompt(attributes.pendencia)
             .getResponse();
     }
