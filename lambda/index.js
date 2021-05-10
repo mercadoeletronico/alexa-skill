@@ -30,7 +30,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
         attributes.pendencia = data.id
-        handlerInput.attributesManager.setSessionAttributes(pendencia)
+        handlerInput.attributesManager.setSessionAttributes(attributes)
 
         //this.$session.$data.pendencia = data.id;
         return handlerInput.responseBuilder
