@@ -60,6 +60,26 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
     }
 };
 
+const RECUSAR_PENDENCIAHandler = {// Recusar pendencia
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RECUSAR_PENDENCIA';
+    },
+    async handle(handlerInput) {
+
+        const attributes = handlerInput.attributesManager.getSessionAttributes();
+
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/recusar", { pend:attributes.pendencia})//Link recusar
+
+        //this.$session.$data.pendencia = "";
+        const speakOutput = data
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -142,6 +162,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         SessionEndedRequestHandler,
         TEM_PENDENCIAHandler,
         APROVAR_PENDENCIAHandler,
+        RECUSAR_PENDENCIAHandler,
         DESCRIBE_PENDENCIAHandler,
         IntentReflectorHandler // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
