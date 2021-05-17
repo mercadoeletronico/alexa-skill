@@ -34,10 +34,8 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
 
         //this.$session.$data.pendencia = data.id;
         return handlerInput.responseBuilder
-          //  .speak(data.speak)
-          //  .reprompt(data.speak)
-            .speak(attributes.pendencia)
-            .reprompt(attributes.pendencia)
+            .speak(data.speak)
+            .reprompt(data.speak)
             .getResponse();
     }
 };
