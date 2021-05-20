@@ -38,6 +38,12 @@
           "samples": [
             "recusar"
           ]
+        },
+        {
+          "name": "SABERMAIS_PENDENCIA",
+          "samples": [
+            "saber mais"
+          ]
         }
       ],
       "types": [
