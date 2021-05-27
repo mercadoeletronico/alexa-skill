@@ -115,7 +115,8 @@ const LaunchRequestHandler = {
         attributes.accessToken = aToken
         handlerInput.attributesManager.setSessionAttributes(attributes)
 
-        const speakOutput = 'Olá, Bem vindo ao assistente do Mercado Eletrónico';
+        //const speakOutput = 'Olá, Bem vindo ao assistente do Mercado Eletrónico';
+        const speakOutput = aToken;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
