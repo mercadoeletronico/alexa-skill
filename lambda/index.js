@@ -12,8 +12,8 @@ const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pe
     async handle(handlerInput) {
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
-        
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/tem_pendencia",{accessToken:attributes.accessToken,})
+
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/tem_pendencia",{accessToken:attributes.accessToken,})
         const speakOutput = JSON.stringify(data);
 
         return handlerInput.responseBuilder
