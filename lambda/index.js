@@ -112,7 +112,7 @@ const LaunchRequestHandler = {
         let aToken = handlerInput.requestEnvelope.context.System.user.accessToken
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
-        attributes.accessToken = accessToken
+        attributes.accessToken = aToken
         handlerInput.attributesManager.setSessionAttributes(attributes)
 
         const speakOutput = 'Olá, Bem vindo ao assistente do Mercado Eletrónico';
