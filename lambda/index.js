@@ -31,7 +31,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.get("https://me-alexa-api.herokuapp.com/describe_pendencia", {accessToken:attributes.accessToken})//receber frase [0] e numero pendencia [1]
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/describe_pendencia", {accessToken:attributes.accessToken})//receber frase [0] e numero pendencia [1]
 
     
         attributes.pendencia = data.id
