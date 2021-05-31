@@ -74,7 +74,7 @@ const RECUSAR_PENDENCIAHandler = {// Recusar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/recusar", { pend:attributes.pendencia,accessToken:attributes.accessToken})//Link recusar
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/recusar", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link recusar
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data
@@ -94,7 +94,7 @@ const SABERMAIS_PENDENCIAHandler = {// Recusar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/desc", { pend:attributes.pendencia,accessToken:attributes.accessToken})//Link recusar
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/desc", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link saber mais
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data
