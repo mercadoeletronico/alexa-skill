@@ -112,7 +112,14 @@ const LaunchRequestHandler = {
     handle(handlerInput) {
 
         let aToken = handlerInput.requestEnvelope.context.System.user.accessToken
+        if (aToken == undefined) {
 
+            return handlerInput.responseBuilder
+            .speak("Ola, Bem vindo ao assistente do Mercado Eletronico, Para utiliza-lo pedidos que se autentique para usufruir das funcionalidades.")
+            .withLinkAccountCard()
+            .getResponse();
+        }else{
+         
         const attributes = handlerInput.attributesManager.getSessionAttributes();
         attributes.accessToken = aToken
         handlerInput.attributesManager.setSessionAttributes(attributes)
@@ -122,6 +129,7 @@ const LaunchRequestHandler = {
             .speak(speakOutput)
             .reprompt(speakOutput)
             .getResponse();
+        }
     }
 };
 const CancelAndStopIntentHandler = {
