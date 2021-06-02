@@ -116,8 +116,8 @@ const LaunchRequestHandler = {
 
             return handlerInput.responseBuilder
             .speak("Ola, Bem vindo ao assistente do Mercado Eletronico, Para utiliza-lo pedidos que se autentique para usufruir das funcionalidades.")
-            .withLinkAccountCard()
-            .getResponse();
+            .withLinkAccountCard("Link a sua conta para utilizar o assistente do Mercado Eletronico. ")
+            .getResponse(); 
         }else{
          
         const attributes = handlerInput.attributesManager.getSessionAttributes();
