@@ -24,7 +24,8 @@
         {
           "name": "DESCRIBE_PENDENCIA",
           "samples": [
-            "Descreva minhas pendencias"
+            "Descreva minhas pendencias",
+            "Proxima"
           ]
         },
         {
