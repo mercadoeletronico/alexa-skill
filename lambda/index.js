@@ -14,7 +14,7 @@ const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pe
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
         const { data } = await axios.post("https://me-alexa-api.herokuapp.com/tem_pendencia",{accessToken:attributes.accessToken})
-        const speakOutput = JSON.stringify(data);
+        const speakOutput = JSON.stringify(data.speak);
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -57,7 +57,7 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
         const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link aprovar
 
         //this.$session.$data.pendencia = "";
-        const speakOutput = data
+        const speakOutput = data.speak
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -77,7 +77,7 @@ const RECUSAR_PENDENCIAHandler = {// Recusar pendencia
         const { data } = await axios.post("https://me-alexa-api.herokuapp.com/recusar", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link recusar
 
         //this.$session.$data.pendencia = "";
-        const speakOutput = data
+        const speakOutput = data.speak
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -97,7 +97,7 @@ const SABERMAIS_PENDENCIAHandler = {// Recusar pendencia
         const { data } = await axios.post("https://me-alexa-api.herokuapp.com/desc", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link saber mais
 
         //this.$session.$data.pendencia = "";
-        const speakOutput = data
+        const speakOutput = data.speak
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
