@@ -54,7 +54,7 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const data = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link aprovar
+        const { data } = await axios.post("https://me-alexa-api.herokuapp.com/aprovar", {pend:attributes.pendencia,accessToken:attributes.accessToken})//Link aprovar
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data.speak
