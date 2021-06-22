@@ -116,7 +116,7 @@ const LaunchRequestHandler = {
         if (aToken == undefined) {
 
             return handlerInput.responseBuilder
-            .speak("Ola, Bem vindo ao assistente do Mercado Eletronico, Para utiliza-lo pedidos que se autentique para usufruir das funcionalidades.")
+            .speak("Ola, Bem vindo ao assistente do Mercado Eletronico, Para começar a usar esta skill, visite a tela inicial do aplicativo Alexa e clique no link para se conectar com a Alexa")
             .withLinkAccountCard("Link a sua conta para utilizar o assistente do Mercado Eletronico. ")
             .getResponse(); 
         }else{
