@@ -13,7 +13,7 @@ const TEM_PENDENCIAHandler = { // Consultar pendencia dar return do numero de pe
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/tem_pendencia",{accessToken:attributes.accessToken})
+        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/has_pendency",{accessToken:attributes.accessToken})
         const speakOutput = JSON.stringify(data.speak);
 
         return handlerInput.responseBuilder
@@ -31,7 +31,7 @@ const DESCRIBE_PENDENCIAHandler = {// Consultar as pendencias dar return da desc
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/describe_pendencia", {accessToken:attributes.accessToken})//receber frase [0] e numero pendencia [1]
+        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/describe_pendency", {accessToken:attributes.accessToken})//receber frase [0] e numero pendencia [1]
 
     
         attributes.pendencia = data.pend
@@ -55,7 +55,7 @@ const APROVAR_PENDENCIAHandler = {// Aprovar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/aprovar", {pend:attributes.pendencia,accessToken:attributes.accessToken,id:attributes.id})//Link aprovar
+        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/approve", {pend:attributes.pendencia,accessToken:attributes.accessToken,id:attributes.id})//Link aprovar
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data.speak
@@ -75,7 +75,7 @@ const RECUSAR_PENDENCIAHandler = {// Recusar pendencia
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/recusar", {pend:attributes.pendencia,accessToken:attributes.accessToken,id:attributes.id})//Link recusar
+        const { data } = await axios.post("https://trunk.api.mercadoe.com/alexa/refuse", {pend:attributes.pendencia,accessToken:attributes.accessToken,id:attributes.id})//Link recusar
 
         //this.$session.$data.pendencia = "";
         const speakOutput = data.speak
